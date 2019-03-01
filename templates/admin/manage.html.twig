@@ -1,0 +1,29 @@
+{% extends "admin.html.twig" %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{% block body %}
+<h1>
+    {% if editMode %}
+        Modification d'un work
+    {% else %}
+        Ajout d'un work
+    {% endif %}
+</h1>
+
+{{ form_start(form) }}
+{{ form_row(form.category, {'label': 'Catégorie', 'attr': {'placeholder': 'Catégorie'}}) }}
+{{ form_row(form.title, {'label': 'Titre', 'attr': {'placeholder': 'Titre'}}) }}
+{% if not editMode %}
+{{ form_row(form.data.name, {'label': 'Choisir un fichier'}) }}
+{% endif %}
+
+<button type="submit" class="btn btn-outline-danger">
+    {% if editMode %}
+        Modifier
+    {% else %}
+        Ajouter
+    {% endif %}
+</button>
+
+{{ form_end(form) }}
+
+{% endblock body %}

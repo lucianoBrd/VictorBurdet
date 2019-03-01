@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>
+            Victor Burdet
+        </title>
+        <meta content="" name="description">
+        <meta content="LucienBrd" name="author">
+        <meta content="" name="keywords">
+        <meta content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+        {% block stylesheets %}
+        <!-- style start -->
+        <link href="https://bootswatch.com/4/darkly/bootstrap.min.css" media="all" rel="stylesheet" type="text/css">
+        <link rel="icon" type="image/png" href="/assets/img/logo-dark.png" />
+        <!-- style end -->
+        {% endblock %}
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    {% block body %}{% endblock %}
+                </div>
+            </div>
+        </div>
+        {% block javascripts %}
+        <!-- scripts start -->
+        <script src="https://bootswatch.com/_vendor/jquery/dist/jquery.min.js"></script>
+        <script src="https://bootswatch.com/_vendor/popper.js/dist/umd/popper.min.js"></script>
+        <script src="https://bootswatch.com/_vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- scripts end -->
+        {% endblock %}
+    </body>
+</html>

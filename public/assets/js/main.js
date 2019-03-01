@@ -30,6 +30,7 @@
   15.2. swiper parallax slider
 16. news MORE carousel item height reset
 17. main menu toggler
+18. works
 */
 
 
@@ -422,6 +423,20 @@ $(function() {
         prevButton: ".swiper-button-prev",
         paginationClickable: true
     });
+
+
+    // 18. works
+    var works = document.querySelectorAll(".works-page-img-carousel-item");
+    var works_length = works.length;
+    for (var i = 0; i < works_length; i++) {
+        var work = works[i].children;
+        var work_length = work.length;
+
+        for (var j = 0; j < work_length; j++) {
+            var url = work[j].children[0].children[0].children[2].children[1].href;
+            work[j].style.backgroundImage = "url("+url+")";
+        }
+    }
 
 
 });
