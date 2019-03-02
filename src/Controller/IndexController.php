@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\DataRepository;
 use App\Repository\WorkRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -11,11 +12,13 @@ class IndexController extends AbstractController
     /**
      * @Route("/", name="index")
      */
-    public function index(WorkRepository $repo)
+    public function index(WorkRepository $repo, DataRepository $repoData)
     {
         $works = $repo->findAll();
+        $homes = $repoData->findHome(true);
         return $this->render('index/index.html.twig', [
-            'works' => $works
+            'works' => $works,
+            'homes' => $homes
         ]);
     }
 }

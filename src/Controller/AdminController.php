@@ -9,6 +9,7 @@ use App\Repository\WorkRepository;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -31,31 +32,37 @@ class AdminController extends AbstractController
      * @Route("/admin/new", name="admin_create")
      * @Route("/admin/{id}/edit", name="admin_edit")
      */
-    public function manage(Request $request, ObjectManager $manager, Work $work = null)
+    public function manage(Request $request, ObjectManager $manager, Work $work = null, Filesystem $fileSystem)
     {
         if (!$work) {
             $work = new Work();
         }
 
         $editMode = $work->getId() != null;
-
         if($editMode){
-            $form = $this->createForm(WorkEditType::class, $work);
-        } else {
-            $form = $this->createForm(WorkType::class, $work);
+            $name = $work->getData()->getName();
         }
+
+        $form = $this->createForm(WorkType::class, $work);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            if(!$editMode){
+            $noneChange = false;
+            if($editMode && $work->getData()->getName() != null){
+                $fileSystem->remove($this->getParameter('data_directory').'/'.$name);
+            } elseif($editMode && $work->getData()->getName() == null){
+                $work->getData()->setName($name);
+                $noneChange = true;
+            }
+
+            if(!$noneChange){
                 /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
                 $file = $work->getData()->getName();
 
                 $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
 
                 $work->getData()->setExtension($file->guessExtension());
-
                 // Move the file to the directory where brochures are stored
                 try {
                     $file->move(
@@ -65,9 +72,9 @@ class AdminController extends AbstractController
                 } catch (FileException $e) {
                     // ... handle exception if something happens during file upload
                 }
-
                 $work->getData()->setName($fileName);
             }
+            
 
             $manager->persist($work);
             $manager->flush();

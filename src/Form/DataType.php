@@ -13,7 +13,8 @@ class DataType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', FileType::class)
+            ->add('name', FileType::class, array('data_class' => null))
+            ->add('home')
         ;
     }
 

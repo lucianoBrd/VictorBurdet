@@ -29,6 +29,11 @@ class Data
      */
     private $extension;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $home;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -54,6 +59,18 @@ class Data
     public function setExtension(string $extension): self
     {
         $this->extension = $extension;
+
+        return $this;
+    }
+
+    public function getHome(): ?bool
+    {
+        return $this->home;
+    }
+
+    public function setHome(bool $home): self
+    {
+        $this->home = $home;
 
         return $this;
     }
