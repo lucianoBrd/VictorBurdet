@@ -1,0 +1,44 @@
+<!-- section home start -->
+<div class="section" id="section0">
+    <!-- hero bg start -->
+    <div class="hero-fullscreen">
+        <!-- mistify slideshow start -->
+        <div id="mistify">
+            {% for home in homes %}
+            <!-- mistify slideshow item start -->
+            <div class="mistify__slide overlay overlay-dark-70">
+                <a class="mistify__slide-content mist-link" href="#">
+                <p class="mistify__slide-description"></p>
+                <h1 class="mistify__slide-title"></h1>
+                <p class="mistify__slide-timestamp"></p></a> <img alt="Mistify Img" class="mistify__slide-background" src="{{ asset('assets/uploads/' ~ home.name) }}">
+            </div>
+            <!-- mistify slideshow item end -->
+            {% endfor %}
+        </div>
+        <!-- mistify slideshow end -->
+    </div>
+    <!-- hero bg end -->
+    <!-- introduction start -->
+    <div class="introduction">
+        <!-- home title start -->
+        <h2 class="home-page-main-title fadeIn-element">
+            <img src="/assets/img/logo.png" alt="logo">
+        </h2>
+        <h1 class="home-page-main-title fadeIn-element">
+            Victor Burdet
+        </h1>
+        <!-- home title end -->
+        <!-- home subtitle start -->
+        <div class="split-border">
+            <div class="home-page-subtitle-carousel owl-carousel">
+                <span class="home-page-title-2 fadeIn-element">Simplicity is complex</span> 
+                <span class="home-page-title-2 fadeIn-element">Design is a process</span> 
+                <span class="home-page-title-2 fadeIn-element">Aesthetic is a decision</span>
+                <span class="home-page-title-2 fadeIn-element">Style is everything</span>
+            </div>
+        </div>
+        <!-- home subtitle end -->
+    </div>
+    <!-- introduction end -->
+</div>
+<!-- section home end -->

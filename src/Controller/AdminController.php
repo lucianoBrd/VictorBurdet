@@ -18,7 +18,7 @@ class AdminController extends AbstractController
 {
 
     /**
-     * @Route("/admin", name="admin")
+     * @Route("/admin/works", name="admin_works")
      */
     public function index(WorkRepository $repo)
     {
@@ -29,8 +29,8 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/new", name="admin_create")
-     * @Route("/admin/{id}/edit", name="admin_edit")
+     * @Route("/admin/works/new", name="admin_works_create")
+     * @Route("/admin/works/{id}/edit", name="admin_works_edit")
      */
     public function manage(Request $request, ObjectManager $manager, Work $work = null, Filesystem $fileSystem)
     {
@@ -85,7 +85,7 @@ class AdminController extends AbstractController
                 $this->addFlash('success', 'Work modifié');
             }
 
-            return $this->redirectToRoute('admin');
+            return $this->redirectToRoute('admin_works');
         }
 
         return $this->render('admin/manage.html.twig', [
@@ -96,7 +96,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/{id}/delete", name="admin_delete")
+     * @Route("/admin/works/{id}/delete", name="admin_works_delete")
      */
     public function delete(Work $work, ObjectManager $manager, Filesystem $fileSystem)
     {
@@ -104,7 +104,7 @@ class AdminController extends AbstractController
         $manager->remove($work);
         $manager->flush();
         $this->addFlash('success', 'Work supprimé');
-        return $this->redirectToRoute('admin');
+        return $this->redirectToRoute('admin_work');
     }
 
     /**

@@ -1,26 +1,26 @@
 {% extends 'admin.html.twig' %}
 {% block body %}
 <h1>
-    Liste des works
-    <a href="{{ path('admin_works_create') }}" class="btn btn-outline-success">Ajouter</a>
+    Liste des news
+    <a href="{{ path('admin_news_create') }}" class="btn btn-outline-success">Ajouter</a>
 </h1>
 
-<section class="works">
+<section class="news">
     {% set i = 0 %}
-    {% for work in works %}
+    {% for new in news %}
     <div class="card mb-3">
         <h3 class="card-header">
-            {{ work.title }}
-            {% if work.data.home %}
+            {{ new.title }}
+            {% if new.data.home %}
             <span class="badge badge-primary">Accueil</span>
             {% endif %}
         </h3>
         <div class="card-body">
-            <h5 class="card-title">{{ work.category }}</h5>
+            <h5 class="card-title">{{ new.category }}</h5>
         </div>
-        <img style="height: 100%; width: 100%;" src="{{ asset('assets/uploads/' ~ work.data.name) }}" alt="Card image">
+        <img style="height: 100%; width: 100%;" src="{{ asset('assets/uploads/' ~ new.data.name) }}" alt="Card image">
         <div class="card-body">
-            <a href="{{ path('admin_works_edit', {'id': work.id}) }}" class="card-link">Editer</a>
+            <a href="{{ path('admin_news_edit', {'id': new.id}) }}" class="card-link">Editer</a>
             <a href="#" class="card-link text-danger" data-toggle="modal" data-target="#delete{{ i }}">Supprimer</a>
         </div>
     </div>
@@ -35,10 +35,10 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Voulez-vous vraiment supprimer {{ work.title }} ?</p>
+                    <p>Voulez-vous vraiment supprimer {{ new.title }} ?</p>
                 </div>
                 <div class="modal-footer">
-                    <a href="{{ path('admin_works_delete', {'id': work.id}) }}" class="btn btn-primary">Confirmer</a>
+                    <a href="{{ path('admin_news_delete', {'id': new.id}) }}" class="btn btn-primary">Confirmer</a>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
                 </div>
             </div>

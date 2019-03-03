@@ -1,0 +1,83 @@
+<!-- section news start -->
+<div class="section" id="section3">
+    <!-- section title start -->
+    <div class="section-title-vertical right-side">
+        <span>News</span>
+    </div><!-- section title end -->
+    <!-- news IMG carousel start -->
+    <div class="news-page-img-wrapper">
+        <div class="owl-carousel" id="news-page-img-carousel">
+            {% set j = 1 %}
+            {% for new in news %}
+            <!-- news IMG carousel item {{ j }} start -->
+            <div class="news-page-img-carousel-item">
+                <div class="news-page-img-carousel-item-{{ j }} overlay overlay-inverse-dark-35">
+                    <div class="news-page-img-carousel-wrapper">
+                        <div class="news-page-img-carousel-text">
+                            <div class="news-page-img-carousel-heading">
+                                {{ new.category }}
+                            </div>
+                            <div class="news-page-img-carousel-title">
+                                <h4>
+                                    {{ new.title }}
+                                </h4>
+                            </div>
+                            <div class="news-page-img-carousel-content">
+                                <div class="news-page-img-carousel-spacer-top"></div>
+                                <p>
+                                    {{ new.textSmall }}
+                                </p>
+                                <div class="news-page-img-carousel-spacer-bottom">
+                                    <a class="c-btn c-btn-news inverse toggle-news-content-{{ j }}"><span>Read more</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- news IMG carousel item {{ j }} end -->
+            {% set j = j + 1 %}
+            {% endfor %}
+        </div>
+    </div><!-- news IMG carousel end -->
+    
+    {% set j = 1 %}
+    {% for new in news %}
+    <!-- news MORE carousel item {{ j }} start -->
+    <div class="panel-left-{{ j }} panel-left-bg-{{ j }} overlay overlay-inverse-dark-35"></div>
+    <div class="panel-right panel-right-{{ j }}">
+        <!-- center container start -->
+        <div class="center-container">
+            <!-- center block start -->
+            <div class="center-block">
+                <!-- news MORE carousel content 1 start -->
+                <div class="img-fullwidth-wrapper">
+                    <div class="about-content">
+                        <div class="about-content-inner">
+                            <!-- main txt start -->
+                            <div class="height-correction">
+                                <div class="text-title text-title-dark">
+                                    <div class="news-page-img-carousel-heading news-page-img-carousel-heading-dark">
+                                        <span>Tuesday, October 10, 2017</span> Beauty / Fashion
+                                    </div>
+                                    <h4>
+                                        {{ new.category }}
+                                    </h4>
+                                </div>
+                                <div class="text-txt text-txt-dark">
+                                    <p>
+                                        {{ new.text }}
+                                    </p>
+                                </div>
+                                <div class="text-spacer">
+                                    <a class="c-btn inverse-dark toggle-news-content-{{ j }}" href="javascript:void(0)"><span>Close</span></a>
+                                </div>
+                            </div><!-- main txt end -->
+                        </div>
+                    </div>
+                </div><!-- news MORE carousel content 1 end -->
+            </div><!-- center block end -->
+        </div><!-- center container end -->
+    </div><!-- news MORE carousel item {{ j }} end -->
+    {% set j = j + 1 %}
+    {% endfor %}
+</div><!-- section news end -->

@@ -1,0 +1,53 @@
+<!-- section works start -->
+<div class="section" id="section2">
+    <!-- section title start -->
+    <div class="section-title-vertical right-side">
+        <span>Works</span>
+    </div><!-- section title end -->
+    <!-- works IMG carousel start -->
+    <div class="works-page-img-wrapper">
+        <div class="owl-carousel" id="works-page-img-carousel">
+            {% set i = 0 %}
+            {% set start = false %}
+            {% for work in works %}
+            {% if i % 2 == 0 and not start %}
+            <!-- works IMG carousel item start -->
+            <div class="works-page-img-carousel-item">
+                {% endif %}
+                <!-- works IMG carousel item start -->
+                <div class="works-page-img-carousel-item-{{ i }} overlay overlay-inverse-dark-35">
+                    <div class="works-page-img-carousel-wrapper">
+                        <div class="works-page-img-carousel-text">
+                            <div class="works-page-img-carousel-heading">
+                                {{ work.category }}
+                            </div>
+                            <div class="works-page-img-carousel-title">
+                                <h4>
+                                    {{ work.title }}
+                                </h4>
+                            </div>
+                            <div class="works-page-img-carousel-content">
+                                <div class="works-page-img-carousel-spacer-top"></div>
+                                <a class="c-btn inverse popup-photo" href="{{ asset('assets/uploads/' ~ work.data.name) }}" title="{{ work.title }}">
+                                    <span>Voir l'image</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- works IMG carousel item end -->
+                {% if start %}
+            </div><!-- works IMG carousel item end -->
+            {% set start = false %}
+            {% elseif i % 2 == 0 %}
+            {% set start = true %}
+            {% endif %}
+
+            {% set i = i + 1 %}
+            {% endfor %}
+
+            {% if start %}
+            </div><!-- works IMG carousel item end -->
+            {% endif %}
+        </div>
+    </div><!-- works IMG carousel end -->
+</div><!-- section works end -->
