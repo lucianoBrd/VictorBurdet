@@ -31,6 +31,7 @@
 16. news MORE carousel item height reset
 17. main menu toggler
 18. works
+19. news
 */
 
 
@@ -426,6 +427,7 @@ $(function() {
 
 
     // 18. works
+    try{
     var works = document.querySelectorAll(".works-page-img-carousel-item");
     var works_length = works.length;
     for (var i = 0; i < works_length; i++) {
@@ -437,6 +439,32 @@ $(function() {
             work[j].style.backgroundImage = "url("+url+")";
         }
     }
+    } catch(error){}
+
+    // 19. news
+    try{
+    var news = document.querySelectorAll(".news-page-img-carousel-item");
+    var news_length = news.length;
+    for (var i = 0; i < news_length; i++) {
+        var ne = news[i].children[0];
+        var url = ne.title;
+        ne.title="";
+        ne.style.backgroundImage = "url("+url+")";
+    }
+    } catch(error){}
+
+    try{
+    var current = document.querySelector(".news-page-img-wrapper");
+    
+    while(current.nextElementSibling != null){
+        current = current.nextElementSibling;
+        if(current.title != ""){
+            var url = current.title;
+            current.title="";
+            current.style.backgroundImage = "url("+url+")";
+        }
+    }
+    } catch(error){}
 
 
 });

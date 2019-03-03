@@ -11,7 +11,7 @@
             {% for new in news %}
             <!-- news IMG carousel item {{ j }} start -->
             <div class="news-page-img-carousel-item">
-                <div class="news-page-img-carousel-item-{{ j }} overlay overlay-inverse-dark-35">
+                <div class="news-page-img-carousel-item-{{ j }} overlay overlay-inverse-dark-35" title="{{ asset('assets/uploads/' ~ new.data.name) }}">
                     <div class="news-page-img-carousel-wrapper">
                         <div class="news-page-img-carousel-text">
                             <div class="news-page-img-carousel-heading">
@@ -28,7 +28,7 @@
                                     {{ new.textSmall }}
                                 </p>
                                 <div class="news-page-img-carousel-spacer-bottom">
-                                    <a class="c-btn c-btn-news inverse toggle-news-content-{{ j }}"><span>Read more</span></a>
+                                    <a class="c-btn c-btn-news inverse toggle-news-content-{{ j }}"><span>Lire la suite</span></a>
                                 </div>
                             </div>
                         </div>
@@ -43,13 +43,13 @@
     {% set j = 1 %}
     {% for new in news %}
     <!-- news MORE carousel item {{ j }} start -->
-    <div class="panel-left-{{ j }} panel-left-bg-{{ j }} overlay overlay-inverse-dark-35"></div>
+    <div class="panel-left-{{ j }} panel-left-bg-{{ j }} overlay overlay-inverse-dark-35" title="{{ asset('assets/uploads/' ~ new.data.name) }}"></div>
     <div class="panel-right panel-right-{{ j }}">
         <!-- center container start -->
         <div class="center-container">
             <!-- center block start -->
             <div class="center-block">
-                <!-- news MORE carousel content 1 start -->
+                <!-- news MORE carousel content {{ j }} start -->
                 <div class="img-fullwidth-wrapper">
                     <div class="about-content">
                         <div class="about-content-inner">
@@ -57,10 +57,10 @@
                             <div class="height-correction">
                                 <div class="text-title text-title-dark">
                                     <div class="news-page-img-carousel-heading news-page-img-carousel-heading-dark">
-                                        <span>Tuesday, October 10, 2017</span> Beauty / Fashion
+                                        <span>Tuesday, October 10, 2017</span> {{ new.category }}
                                     </div>
                                     <h4>
-                                        {{ new.category }}
+                                        {{ new.title }}
                                     </h4>
                                 </div>
                                 <div class="text-txt text-txt-dark">
@@ -69,12 +69,12 @@
                                     </p>
                                 </div>
                                 <div class="text-spacer">
-                                    <a class="c-btn inverse-dark toggle-news-content-{{ j }}" href="javascript:void(0)"><span>Close</span></a>
+                                    <a class="c-btn inverse-dark toggle-news-content-{{ j }}" href="javascript:void(0)"><span>Fermer</span></a>
                                 </div>
                             </div><!-- main txt end -->
                         </div>
                     </div>
-                </div><!-- news MORE carousel content 1 end -->
+                </div><!-- news MORE carousel content {{ j }} end -->
             </div><!-- center block end -->
         </div><!-- center container end -->
     </div><!-- news MORE carousel item {{ j }} end -->
