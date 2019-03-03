@@ -1510,7 +1510,7 @@ text-shadow: 1px 1px 2px #111;
 position: relative;
 width: 300px;
 height: 160px;
-margin: 120px auto 0 auto;
+margin: 10px auto 0 auto;
 background: none;
 text-align: center;
 }
@@ -1531,10 +1531,11 @@ padding: 0;
 overflow: hidden;
 }
 
-#subscribe input {
+#subscribe input, #subscribe textarea {
 position: relative;
 width: 225px;
 height: 40px;
+margin-bottom: 10px;
 text-align: center;
 color: #fff;
 border: none;
@@ -1556,7 +1557,7 @@ color: #fff;
         transition: all 0.5s linear;
 }
 
-#subscribe input:hover {
+#subscribe input:hover, #subscribe textarea:hover {
 border-color: rgba(119, 119, 119, .5);
 -webkit-transition: all 0.5s linear;
    -moz-transition: all 0.5s linear;
@@ -1596,34 +1597,51 @@ letter-spacing: 0.15em;
 
 
 /* 20.1. newsletter placeholders */
-input[type="text"].subscribe-email::-webkit-input-placeholder {
+input[type="text"]::-webkit-input-placeholder {
 color: #fff;
 }
 
-input[type="text"].subscribe-email:-ms-input-placeholder{
+input[type="text"]:-ms-input-placeholder{
 color: #fff;
 }
 
-input[type="text"].subscribe-email::-moz-placeholder {
+input[type="text"]::-moz-placeholder {
 color: #fff;
 }
 
-input:focus.subscribe-email::-webkit-input-placeholder { color: transparent; }
-     input:focus.subscribe-email:-ms-input-placeholder { color: transparent; }
-         input:focus.subscribe-email::-moz-placeholder { color: transparent; }
-          input:focus.subscribe-email:-moz-placeholder { color: transparent; }
+input:focus::-webkit-input-placeholder { color: transparent; }
+     input:focus:-ms-input-placeholder { color: transparent; }
+         input:focus::-moz-placeholder { color: transparent; }
+          input:focus:-moz-placeholder { color: transparent; }
+
+textarea::-webkit-input-placeholder {
+color: #fff;
+}
+
+textarea:-ms-input-placeholder{
+color: #fff;
+}
+
+textarea::-moz-placeholder {
+color: #fff;
+}
+
+textarea:focus::-webkit-input-placeholder { color: transparent; }
+     textarea:focus:-ms-input-placeholder { color: transparent; }
+         textarea:focus::-moz-placeholder { color: transparent; }
+          textarea:focus:-moz-placeholder { color: transparent; }
 
 
 /* 21. social icons */
 .social-icons-wrapper {
 position: relative;
-margin: 45px auto 0 auto;
+margin: 170px auto 0 auto;
 text-align: center;
 }
 
 @media only screen and (max-width: 640px) {
   .social-icons-wrapper {
-    margin: 38px auto 0 auto;
+    margin: 168px auto 0 auto;
   }
 }
 
