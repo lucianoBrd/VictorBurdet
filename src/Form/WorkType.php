@@ -15,6 +15,7 @@ class WorkType extends AbstractType
         $builder
             ->add('category')
             ->add('title')
+            ->add('video')
             ->add('data', DataType::class)
         ;
     }

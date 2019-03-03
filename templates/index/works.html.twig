@@ -13,9 +13,9 @@
             {% if i % 2 == 0 and not start %}
             <!-- works IMG carousel item start -->
             <div class="works-page-img-carousel-item">
-                {% endif %}
+            {% endif %}
                 <!-- works IMG carousel item start -->
-                <div class="works-page-img-carousel-item-{{ i }} overlay overlay-inverse-dark-35">
+                <div class="works-page-img-carousel-item-{{ i }} overlay overlay-inverse-dark-35" {% if work.video %}title="{{ asset('assets/uploads/' ~ work.data.name) }}"{% endif %}>
                     <div class="works-page-img-carousel-wrapper">
                         <div class="works-page-img-carousel-text">
                             <div class="works-page-img-carousel-heading">
@@ -28,9 +28,15 @@
                             </div>
                             <div class="works-page-img-carousel-content">
                                 <div class="works-page-img-carousel-spacer-top"></div>
+                                {% if not work.video %}
                                 <a class="c-btn inverse popup-photo" href="{{ asset('assets/uploads/' ~ work.data.name) }}" title="{{ work.title }}">
                                     <span>Voir l'image</span>
                                 </a>
+                                {% else %}
+                                <a class="c-btn inverse popup-youtube" href="{{ work.video }}">
+                                    <span>Voir la video</span>
+                                </a>
+                                {% endif %}
                             </div>
                         </div>
                     </div>

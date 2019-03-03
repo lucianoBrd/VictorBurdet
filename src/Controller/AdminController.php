@@ -104,7 +104,7 @@ class AdminController extends AbstractController
         $manager->remove($work);
         $manager->flush();
         $this->addFlash('success', 'Work supprimé');
-        return $this->redirectToRoute('admin_work');
+        return $this->redirectToRoute('admin_works');
     }
 
     /**

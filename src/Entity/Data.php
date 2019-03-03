@@ -19,8 +19,8 @@ class Data
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Le fichier doit être une image ou une vidéo.")
-     * @Assert\File(mimeTypes={ "image/png", "image/jpeg", "video/mpeg" })
+     * @Assert\NotBlank(message="Le fichier doit être une image.")
+     * @Assert\File(mimeTypes={ "image/png", "image/jpeg" })
      */
     private $name;
 

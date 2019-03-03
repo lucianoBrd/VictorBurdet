@@ -435,7 +435,12 @@ $(function() {
         var work_length = work.length;
 
         for (var j = 0; j < work_length; j++) {
-            var url = work[j].children[0].children[0].children[2].children[1].href;
+            if(work[j].title == ""){
+                var url = work[j].children[0].children[0].children[2].children[1].href;
+            } else {
+                var url = work[j].title;
+                work[j].title = "";
+            }
             work[j].style.backgroundImage = "url("+url+")";
         }
     }
