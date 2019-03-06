@@ -67,29 +67,19 @@
 
 /* 1. TEMPLATE BACKGROUNDS */
 /* 1.1. section IMG BACKGROUND */
-.section-bg-contact {
-background-image: url(../img/danse/contact.jpg);
-}
-
+/* in js */
 
 /* 1.2. works IMG carousel IMG BACKGROUND */
 /* in js */
 
-
 /* 1.3. about IMG BACKGROUND */
-.img-fullwidth-about-carousel {
-background-image: url(../img/about/about.jpeg);
-}
-
+/* in js */
 
 /* 1.4. news IMG carousel IMG BACKGROUND */
 /* in js */
 
 /* 1.5. news panel left bg IMG BACKGROUND */
 /* in js */
-.panel-left-1.panel-left-bg-1 {
-background-image: url(../img/news/news-page-img-carousel-item-1.jpg);
-}
 
 
 

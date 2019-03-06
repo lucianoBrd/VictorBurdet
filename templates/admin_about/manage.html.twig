@@ -9,7 +9,7 @@
 {{ form_row(form.text, {'label': 'Texte d\'explication', 'attr': {'placeholder': 'Texte d\'explication'}}) }}
 <img width="500" src="{{ asset('assets/img/about/' ~ about.data.name) }}" alt="Card image">
 {{ form_row(form.data.name, {'label': 'Choisir un fichier', 'required': false}) }}
-{{ form_row(form.data.home, {'label': 'Afficher dans l\'accueil'}) }}
+{% do form.data.home.setRendered() %}
 
 <button type="submit" class="btn btn-outline-success">
     Modifier

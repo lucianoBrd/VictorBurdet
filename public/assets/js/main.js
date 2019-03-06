@@ -32,6 +32,8 @@
 17. main menu toggler
 18. works
 19. news
+20. about
+21. contact
 */
 
 
@@ -476,6 +478,22 @@ $(function() {
             current.style.backgroundImage = "url("+url+")";
         }
     }
+    } catch(error){}
+
+    // 20. about
+    try{
+    var about = document.querySelector(".img-fullwidth-about-carousel");
+    var url = about.title;
+    about.title = "";
+    about.style.backgroundImage = "url("+url+")";
+    } catch(error){}
+
+    // 21. contact
+    try{
+    var contact = document.querySelector(".section-bg-contact");
+    var url = contact.title;
+    contact.title = "";
+    contact.style.backgroundImage = "url("+url+")";
     } catch(error){}
 
 
