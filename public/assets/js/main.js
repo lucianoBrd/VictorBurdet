@@ -249,22 +249,29 @@ $(function() {
     $("form#subscribe").on("submit", function() {
         $("form#subscribe .subscribe-error").remove();
         var s = !1;
+        var compt = 0;
         if ($(".subscribe-requiredField").each(function() {
-                if ("" === jQuery.trim($(this).val())) $(this).prev("label").text(), $(this).parent().append('<span class="subscribe-error">Please enter your Email</span>'),
+                if ("" === jQuery.trim($(this).val())){ 
+                    if(compt == 0){
+                        $(this).prev("label").text(), $(this).parent().append('<span class="subscribe-error">Veuillez remplir tous les champs</span>');
+                        compt++;
+                    }
                     $(this).addClass("inputError"), s = !0;
+                }
                 else if ($(this).hasClass("subscribe-email")) {
                     var r = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-                    r.test(jQuery.trim($(this).val())) || ($(this).prev("label").text(), $(this).parent().append('<span class="subscribe-error">Please enter a valid Email</span>'),
+                    r.test(jQuery.trim($(this).val())) || ($(this).prev("label").text(), $(this).parent().append('<span class="subscribe-error">Entrez un Email valide</span>'),
                         $(this).addClass("inputError"), s = !0);
                 }
             }), !s) {
+            $("button#submit-2 span").text("Envoie...");
             $("form#subscribe input.submit").fadeOut("normal", function() {
                 $(this).parent().append("");
             });
             var r = $(this).serialize();
             $.post($(this).attr("action"), r, function() {
                 $("form#subscribe").slideUp("fast", function() {
-                    $(this).before('<div class="subscribe-success">Thank you for subscribing.</div>');
+                    $(this).before('<div class="subscribe-success">Merci pour votre message.</div>');
                 });
             });
         }
