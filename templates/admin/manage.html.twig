@@ -14,7 +14,7 @@
 {{ form_row(form.title, {'label': 'Titre', 'attr': {'placeholder': 'Titre'}}) }}
 {{ form_row(form.video, {'label': 'Video (optionnelle)', 'attr': {'placeholder': 'Url youtube'}}) }}
 {% if editMode %}
-<img style="height: 100%; width: 100%;" src="{{ asset('assets/uploads/' ~ work.data.name) }}" alt="Card image">
+<img width="500" src="{{ asset('assets/uploads/' ~ work.data.name) }}" alt="Card image">
 {% endif %}
 {{ form_row(form.data.name, {'label': 'Choisir un fichier', (editMode) ? 'required': false : ''}) }}
 {{ form_row(form.data.home, {'label': 'Afficher dans l\'accueil'}) }}

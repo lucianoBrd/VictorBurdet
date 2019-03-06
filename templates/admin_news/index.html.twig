@@ -18,7 +18,7 @@
         <div class="card-body">
             <h5 class="card-title">{{ new.category }}</h5>
         </div>
-        <img style="height: 100%; width: 100%;" src="{{ asset('assets/uploads/' ~ new.data.name) }}" alt="Card image">
+        <img width="500" src="{{ asset('assets/uploads/' ~ new.data.name) }}" alt="Card image">
         <div class="card-body">
             <a href="{{ path('admin_news_edit', {'id': new.id}) }}" class="card-link">Editer</a>
             <a href="#" class="card-link text-danger" data-toggle="modal" data-target="#delete{{ i }}">Supprimer</a>

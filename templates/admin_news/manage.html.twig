@@ -15,7 +15,7 @@
 {{ form_row(form.textSmall, {'label': 'Texte de présentation', 'attr': {'placeholder': 'Texte de présentation'}}) }}
 {{ form_row(form.text, {'label': 'Texte d\'explication', 'attr': {'placeholder': 'Texte d\'explication'}}) }}
 {% if editMode %}
-<img style="height: 100%; width: 100%;" src="{{ asset('assets/uploads/' ~ news.data.name) }}" alt="Card image">
+<img width="500" src="{{ asset('assets/uploads/' ~ news.data.name) }}" alt="Card image">
 {% endif %}
 {{ form_row(form.data.name, {'label': 'Choisir un fichier', (editMode) ? 'required': false : ''}) }}
 {{ form_row(form.data.home, {'label': 'Afficher dans l\'accueil'}) }}
