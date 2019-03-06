@@ -1,0 +1,20 @@
+{% extends "admin.html.twig" %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{% block body %}
+<h1>
+    Modification about
+</h1>
+
+{{ form_start(form) }}
+{{ form_row(form.text, {'label': 'Texte d\'explication', 'attr': {'placeholder': 'Texte d\'explication'}}) }}
+<img width="500" src="{{ asset('assets/img/about/' ~ about.data.name) }}" alt="Card image">
+{{ form_row(form.data.name, {'label': 'Choisir un fichier', 'required': false}) }}
+{{ form_row(form.data.home, {'label': 'Afficher dans l\'accueil'}) }}
+
+<button type="submit" class="btn btn-outline-success">
+    Modifier
+</button>
+
+{{ form_end(form) }}
+
+{% endblock body %}
