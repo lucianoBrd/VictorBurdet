@@ -1,0 +1,1 @@
+Sitemap: <lien url="http://victorburdet.com/sitemap.xml">http://victorburdet.com/sitemap.xml</lien>
