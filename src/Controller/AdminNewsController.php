@@ -18,6 +18,7 @@ class AdminNewsController extends AbstractController
      */
     public function index(NewsRepository $repo)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $news = $repo->findAll();
         return $this->render('admin_news/index.html.twig', [
             'news' => $news
@@ -30,6 +31,7 @@ class AdminNewsController extends AbstractController
      */
     public function manage(Request $request, ObjectManager $manager, News $news = null, Filesystem $fileSystem)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         if (!$news) {
             $news = new News();
         }
@@ -96,6 +98,7 @@ class AdminNewsController extends AbstractController
      */
     public function delete(News $news, ObjectManager $manager, Filesystem $fileSystem)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $fileSystem->remove($this->getParameter('data_directory').'/'.$news->getData()->getName());
         $manager->remove($news);
         $manager->flush();

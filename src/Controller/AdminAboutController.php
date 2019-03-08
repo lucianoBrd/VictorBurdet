@@ -18,6 +18,7 @@ class AdminAboutController extends AbstractController
      */
     public function manage(Request $request, ObjectManager $manager, About $about = null, Filesystem $fileSystem)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $name = $about->getData()->getName();
 
         $form = $this->createForm(AboutType::class, $about);

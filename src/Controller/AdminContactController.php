@@ -17,6 +17,7 @@ class AdminContactController extends AbstractController
      */
     public function manage(Request $request, ObjectManager $manager, Contact $contact = null, Filesystem $fileSystem)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $name = $contact->getData()->getName();
 
         $form = $this->createForm(ContactType::class, $contact);
