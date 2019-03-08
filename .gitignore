@@ -17,3 +17,5 @@
 /.web-server-pid
 ###< symfony/web-server-bundle ###
 /public/assets/uploads/
+/public/assets/img/about/
+/public/assets/img/contact/
