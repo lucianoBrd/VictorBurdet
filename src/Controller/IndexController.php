@@ -35,27 +35,29 @@ class IndexController extends AbstractController
     /**
      * @Route("/contact", name="contact")
      */
-    public function contact(Request $request, \Swift_Mailer $mailer, ContactRepository $repoContact)
+    public function contact(Request $request, ContactRepository $repoContact)
     {
         $contact = $repoABout->find(1);
         $email = $request->query->get('subscribe-email');
         $name = $request->query->get('subscribe-name');
-        $message = $request->query->get('subscribe-message');
+        $msg = $request->query->get('subscribe-message');
+
+        $subject = 'Contact site Victor Burdet';
+
+        $message = '<strong>Nom : </strong>'.$name.'<br/><br/>';
+
+        $message .= '<strong>Email : </strong>'.$email.'<br/><br/>';
+
+        $message .= $msg.'<br/>';
+
+        $header="MIME-Version: 1.0\r\n";
+        $header.='From:"LucienBrd"<no-reply@lucien-brd.com>'."\n";
+        $header.='Content-Type:text/html; charset="uft-8"'."\n";
+        $header.='Content-Transfer-Encoding: 8bit';
+
         
-        $mail = $contact->getEmail();
-        $message = (new\ Swift_Message('Contacte site Victor Burdet')) 
-            ->setFrom('no-reply@victorburdet.com') 
-            ->setTo($mail) 
-            ->setBody(
-                $this->renderView('email/email.html.twig', [
-                    'email' => $email,
-                    'name' => $name,
-                    'message' => $message
-                ]),
-                'text/html'
-            );
         if($email != null && $name != null && $message != null){
-            $mailer->send($message);
+            mail($contact->getEmail(),$subject,$message,$header);
         }
         
         return $this->redirectToRoute('index');
