@@ -38,9 +38,9 @@ class IndexController extends AbstractController
     public function contact(Request $request, ContactRepository $repoContact)
     {
         $contact = $repoContact->find(1);
-        $email = $request->query->get('subscribe-email');
-        $name = $request->query->get('subscribe-name');
-        $msg = $request->query->get('subscribe-message');
+        $email = $request->request->get('subscribe-email');
+        $name = $request->request->get('subscribe-name');
+        $msg = $request->request->get('subscribe-message');
 
         $subject = 'Contact site Victor Burdet';
 
@@ -56,7 +56,7 @@ class IndexController extends AbstractController
         $header.='Content-Transfer-Encoding: 8bit';
 
         
-        if($email != null && $name != null && $message != null){
+        if($email != null && $name != null && $msg != null){
             mail($contact->getEmail(),$subject,$message,$header);
         }
         
