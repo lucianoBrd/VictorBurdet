@@ -23,6 +23,11 @@
         <!-- center block menu start -->
         <div class="center-block-menu">
             <ul class="brackets">
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <li>
+                    <a class="menu-state" href="{{ path('admin_works') }}">Admin</a>
+                </li>
+                {% endif %}
                 <li>
                     <a class="menu-state active" href="#home">Accueil</a>
                 </li>

@@ -22,6 +22,7 @@ class Data
      * @Assert\NotBlank(message="Le fichier doit être une image.")
      * @Assert\File(
      *  maxSize = "1024k",
+     *  maxSizeMessage = "Le fichier doit faire moins de 1mo.",
      *  mimeTypes={ "image/png", "image/jpeg" }
      * )
      */
