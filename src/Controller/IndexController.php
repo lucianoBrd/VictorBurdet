@@ -37,7 +37,7 @@ class IndexController extends AbstractController
      */
     public function contact(Request $request, ContactRepository $repoContact)
     {
-        $contact = $repoABout->find(1);
+        $contact = $repoContact->find(1);
         $email = $request->query->get('subscribe-email');
         $name = $request->query->get('subscribe-name');
         $msg = $request->query->get('subscribe-message');
